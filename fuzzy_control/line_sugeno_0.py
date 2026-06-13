@@ -12,7 +12,7 @@ class SugenoTunedNode(Node):
     def __init__(self):
         super().__init__('sugeno_tuned_follower')
         self.get_logger().info("Iniciando Sugeno Orden 0 (TUNEADO)...")
-
+        #universo del error y funciones de membresia
         self.x_err = np.arange(-1.0, 1.01, 0.01)
 
         self.mf_hn = fuzz.trapmf(self.x_err, [-1.05, -1.0, -0.5, -0.2])
@@ -21,9 +21,7 @@ class SugenoTunedNode(Node):
         self.mf_lp = fuzz.trimf(self.x_err, [0.0, 0.2, 0.5])
         self.mf_hp = fuzz.trapmf(self.x_err, [0.2, 0.5, 1.0, 1.01])
 
-        # ---------------------------------------------------------
-        # CONSTANTES DE SUGENO (Tuneadas para Cinemática Diferencial)
-        # ---------------------------------------------------------
+        #COnstantes de sujeno
         # R1: HighNeg (Desvío Extremo Izquierda) -> Freno total frontal, giro rápido para recuperar.
         self.v_hn, self.w_hn = 0.0, -0.20   
         
@@ -57,7 +55,7 @@ class SugenoTunedNode(Node):
         if suma_pesos == 0:
             return
 
-        # Defuzzificación Sugeno
+        # Defuzzificación Sugeno (suma ponderada)
         v_out = (w1*self.v_hn + w2*self.v_ln + w3*self.v_z + w4*self.v_lp + w5*self.v_hp) / suma_pesos
         w_out = (w1*self.w_hn + w2*self.w_ln + w3*self.w_z + w4*self.w_lp + w5*self.w_hp) / suma_pesos
 
