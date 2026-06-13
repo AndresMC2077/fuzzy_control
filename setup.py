@@ -28,7 +28,6 @@ setup(
             'mamdani_v2 = fuzzy_control.line_mamdani_v2:main',
             'mamdani_aprox = fuzzy_control.line_aproximated:main',
             'sugeno_0 = fuzzy_control.line_sugeno_0:main',
-            'sugeno_1 = fuzzy_control.line_sugeno_1:main',
             'sugeno_pd= fuzzy_control.line_sugeno_pd:main',
         ],
     },
