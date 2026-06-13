@@ -1,0 +1,6 @@
+[console_scripts]
+mamdani_aprox = fuzzy_control.line_aproximated:main
+mamdani_v1 = fuzzy_control.line_mamdani_v1:main
+mamdani_v2 = fuzzy_control.line_mamdani_v2:main
+sugeno_0 = fuzzy_control.line_sugeno_0:main
+sugeno_pd = fuzzy_control.line_sugeno_pd:main
